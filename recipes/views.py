@@ -1,4 +1,11 @@
 from django.shortcuts import render
 
-def recipes(request):
-    return render(request, 'recipes/pages/home.html')
+def home(request):
+    return render(request, 'recipes/pages/home.html', context={
+        'name': 'Kauãh Stewan de Menezes'
+    })
+
+def recipes(request, id):
+    return render(request, 'recipes/pages/recipe-view.html', context={
+        'name': 'Kauãh Stewan de Menezes'
+    })
