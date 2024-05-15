@@ -10,15 +10,16 @@ class Factory:
     def rand_ratio(self) -> int:
         return randint(840, 900)
         
-    def make_recipe(self):
+    def make_recipe(self) -> dict:
         return {
-            'title': self.fake.sentence(nb_words=6),
+            'id': self.fake.random_number(digits=3, fix_len=True),
+            'title': self.fake.sentence(nb_words=6),    
             'description': self.fake.sentence(nb_words=12),
             'preparation_time': self.fake.random_number(digits=2, fix_len=True),
             'preparation_time_unit': 'Minutos',
             'servings': self.fake.random_number(digits=2, fix_len=True),
             'servings_unit': 'Porção',
-            'preparation_steps': self.fake.text(3000),
+            'preparation_steps': self.fake.text(2500),
             'created_at': self.fake.date_time(),
             'author': {
                 'first_name': self.fake.first_name(),
@@ -32,6 +33,7 @@ class Factory:
             }
         }
     
+
 
 if __name__ == "__main__":
     from pprint import pprint
